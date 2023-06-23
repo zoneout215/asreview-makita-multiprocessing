@@ -164,3 +164,8 @@ cython_debug/
 
 # Data
 *.csv
+
+# Splited jobs
+jobs.sh.part1
+jobs.sh.part2
+jobs.sh.part3
