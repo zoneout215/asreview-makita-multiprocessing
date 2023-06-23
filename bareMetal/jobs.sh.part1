@@ -1,0 +1,10 @@
+mkdir output
+mkdir output/simulation
+mkdir output/simulation/van_de_Schoot_2018/
+mkdir output/simulation/van_de_Schoot_2018/metrics
+mkdir output/simulation/van_de_Schoot_2018/descriptives
+asreview data describe data/van_de_Schoot_2018.csv -o output/simulation/van_de_Schoot_2018/descriptives/data_stats_van_de_Schoot_2018.json
+asreview wordcloud data/van_de_Schoot_2018.csv -o output/simulation/van_de_Schoot_2018/descriptives/wordcloud_van_de_Schoot_2018.png --width 800 --height 500
+asreview wordcloud data/van_de_Schoot_2018.csv -o output/simulation/van_de_Schoot_2018/descriptives/wordcloud_relevant_van_de_Schoot_2018.png --width 800 --height 500 --relevant
+asreview wordcloud data/van_de_Schoot_2018.csv -o output/simulation/van_de_Schoot_2018/descriptives/wordcloud_irrelevant_van_de_Schoot_2018.png --width 800 --height 500 --irrelevant
+mkdir output/simulation/van_de_Schoot_2018/state_files
