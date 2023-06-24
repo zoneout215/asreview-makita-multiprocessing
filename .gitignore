@@ -163,7 +163,7 @@ cython_debug/
 .DS_Store
 
 # Data
-*.csv
+*van_de_Schoot_2018.csv
 
 # Splited jobs
 jobs.sh.part1
