@@ -62,7 +62,7 @@ kubectl completion bash | sudo tee /etc/bash_completion.d/kubectl > /dev/null
 
 Log out and log in after installing bash completions.
 
-# 2\.Preparation of Kubernetes for Simulation run
+# 2\. Preparation of Kubernetes for Simulation run
 ### 2.1\. Start minikube and install RabbitMQ
 
 We need to install and run RabbitMQ on Kubernetes.
@@ -91,14 +91,14 @@ kubectl apply -f rabbitmq.yml
 
 ### 2.3\.  Create a volume
 The volume is necessary to hold the `data`, `scripts`, and the `output`.
-
+Change the `YOURUSER` to your docker user and run the commands:
 ```bash
 minikube ssh -- sudo mkdir -p /mnt/asreview-storage
 kubectl apply -f volume.yml
 ```
 
 ### 2.4\.  Prepare the tasker script and Docker image
-
+Change the `YOURUSER` to your docker user and run the commands:
 ```bash
 docker build -t YOURUSER/tasker -f tasker.Dockerfile .
 docker push YOURUSER/tasker
@@ -130,7 +130,6 @@ The file `worker.yml` contains the configuration of the deployment of the worker
 ### 3.1\. Running the workers
 
 Change the `image` to reflect the path to the image that you pushed.
-You can select the number of `replicas` to change the number of workers.
 
 Run with
 
@@ -158,7 +157,7 @@ Logging as ...
 [*] Waiting for messages. CTRL+C to exit
 ```
 
-## Running the tasker
+## 3.2\. Running the tasker
 
 Similarly, the `tasker.yml` allows you to run the tasker as a Kubernetes job.
 Change the `image`, and optionally add a `ttlSecondsAfterFinished` to auto delete the task - I prefer to keep it until I review the log.
@@ -168,19 +167,9 @@ Run
 kubectl apply -f tasker.yml
 ```
 
+## 3.3\. Collecting the computation time
+
 Similarly, you should see a `tasker` pod, and you can follow its log.
-
-## Copying the output out of the minikube to your machine
-
-You can copy the `output` folder from the volume with
-
-```bash
-kubectl cp asreview-worker-FULL-NAME:/app/workdir/output ./output
-```
-
-Also, check the `/app/workdir/issues` folder.
-It should be empty, because it contains errors while running the simulate code.
-If it is not empty, the infringing lines will be shown.
 
 ## Deleting and restarting
 
