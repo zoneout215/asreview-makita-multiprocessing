@@ -1,5 +1,5 @@
 
-# 1\. Installation 
+# 1\. Installation on SURF
 
 ### 1.1\. Create a workspace with "Ubuntu 20.04 (SUDO enabled)".
 
@@ -61,6 +61,7 @@ kubectl completion bash | sudo tee /etc/bash_completion.d/kubectl > /dev/null
 ```
 
 Log out and log in after installing bash completions.
+
 # 2\.Preparation of Kubernetes for Simulation run
 ### 2.1\. Start minikube and install RabbitMQ
 
@@ -68,11 +69,19 @@ We need to install and run RabbitMQ on Kubernetes.
 Run the following commands takes from [RabbitMQ Cluster Operator](https://www.rabbitmq.com/kubernetes/operator/quickstart-operator.html), and then the `rabbitmq.yml` service.
 
 The `--cpus` argument is the number of CPUs you want to dedicate to minikube. The `--memory` argument is how much RAM overall the arcitecture has.
+For `K8s_test1` those arguments must not be specified, when you want to acuire the same `K8s_test1` results just proceed without specifing them.
 
 ```bash
 minikube start --cpus 16 --memory 60000
 kubectl apply -f "https://github.com/rabbitmq/cluster-operator/releases/latest/download/cluster-operator.yml"
 ```
+>Note
+>If you want to start the minikube clusters with different parameters you should run, and start again from (2.1):
+
+>```
+>minikube stop
+>minikube delete
+>```
 
 
 ### 2.2\.  Start RabbitMQ configuration by running this: 
@@ -81,7 +90,6 @@ kubectl apply -f rabbitmq.yml
 ```
 
 ### 2.3\.  Create a volume
-
 The volume is necessary to hold the `data`, `scripts`, and the `output`.
 
 ```bash
@@ -91,19 +99,16 @@ kubectl apply -f volume.yml
 
 ### 2.4\.  Prepare the tasker script and Docker image
 
-> **Note**
->
-> The default tasker assumes that a data folder exists with your data.
-> Make sure to provide the `van_de_Schoot_2018.csv` in `data` folder.
-
 ```bash
 docker build -t YOURUSER/tasker -f tasker.Dockerfile .
 docker push YOURUSER/tasker
 ```
 
 > **Note**
->
-> This will push the image to Docker. You will need to create an account an login in your terminal with `docker login`.
+> * The default tasker assumes that a data folder exists with your data.
+> Make sure to provide the `van_de_Schoot_2018.csv` in `data` folder.
+
+> * This command will push the image to Docker. You will need to create an account an login in your terminal with `docker login`.
 
 ### 2.5\.  Prepare the worker script and Docker image
 
@@ -113,14 +118,19 @@ docker push YOURUSER/worker
 ```
 
 ## 3. Running the simulations
+The file `worker.yml` contains the configuration of the deployment of the workers. So in order to vary allocation of CPU, RAM and the number of Workers you should alter the file of `worker.yml` in the following parts of the code: 
+
+* Change `replicas` in range betweem `1` to `14` to reproduce varing of CPUs allocation/
+* Change `memory` between `1024Mi` and `2048Mi` to reproduce varing of RAM allocation.
+
+>Note
+> Setting `replicas` to `16` will work, but it will not speed up the simulations, because 2 CPUs will be taken by RabbitMQ and Tasker components. 
+
 
 ### 3.1\. Running the workers
 
-The file `worker.yml` contains the configuration of the deployment of the workers.
 Change the `image` to reflect the path to the image that you pushed.
 You can select the number of `replicas` to change the number of workers.
-
-Pay attention to the resource limits, and change as you see fit.
 
 Run with
 
