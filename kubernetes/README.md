@@ -1,9 +1,9 @@
 
 # 1\. Installation 
 
-1.1\. Create a workspace with "Ubuntu 20.04 (SUDO enabled)".
+### 1.1\. Create a workspace with "Ubuntu 20.04 (SUDO enabled)".
 
-1.2\. Install docker following [the official documentation](https://docs.docker.com/engine/install/ubuntu/).
+### 1.2\. Install docker following [the official documentation](https://docs.docker.com/engine/install/ubuntu/).
 At the time of writing, the commands are:
 
 ```bash
@@ -20,13 +20,13 @@ sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
 
-1.3\. Add your user to the docker group:
+### 1.3\. Add your user to the docker group:
 
 ```bash
 sudo usermod -aG docker $USER
 ```
 
-1.4\. Go to [Docker Website](https://www.docker.com) and make an account. Run this: 
+### 1.4\. Go to [Docker Website](https://www.docker.com) and make an account. Run this: 
 
 ``` bash
 docker login
@@ -36,14 +36,14 @@ docker login
 >so it can use new packages.
 Log out and log in again. Test that you can run `docker run hello-world`.
 
-1.5\. Download minikube and install it.
+### 1.5\. Download minikube and install it.
 
 ```bash
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb
 sudo dpkg -i minikube_latest_amd64.deb
 ```
 
-1.6\. Install `kubectl` following the [official documentation](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-using-native-package-management), **however, fix the curl command** following [this issue](https://github.com/kubernetes/release/issues/2862):
+### 1.6\. Install `kubectl` following the [official documentation](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-using-native-package-management)
 
 ```bash
 sudo apt-get update
@@ -54,7 +54,7 @@ sudo apt-get update
 sudo apt-get install -y kubectl
 ```
 
-1.7\. install bash completions using
+### 1.7\. install bash completions using
 
 ```bash
 kubectl completion bash | sudo tee /etc/bash_completion.d/kubectl > /dev/null
@@ -62,25 +62,25 @@ kubectl completion bash | sudo tee /etc/bash_completion.d/kubectl > /dev/null
 
 Log out and log in after installing bash completions.
 # 2\.Preparation of Kubernetes for Simulation run
-## Start minikube and install RabbitMQ
+### 2.1\. Start minikube and install RabbitMQ
 
 We need to install and run RabbitMQ on Kubernetes.
 Run the following commands takes from [RabbitMQ Cluster Operator](https://www.rabbitmq.com/kubernetes/operator/quickstart-operator.html), and then the `rabbitmq.yml` service.
+
+The `--cpus` argument is the number of CPUs you want to dedicate to minikube. The `--memory` argument is how much RAM overall the arcitecture has.
 
 ```bash
 minikube start --cpus 16 --memory 60000
 kubectl apply -f "https://github.com/rabbitmq/cluster-operator/releases/latest/download/cluster-operator.yml"
 ```
 
-## Start RabbitMQ configuration
 
-Run
-
+### 2.2\.  Start RabbitMQ configuration by running this: 
 ```bash
 kubectl apply -f rabbitmq.yml
 ```
 
-## Create a volume
+### 2.3\.  Create a volume
 
 The volume is necessary to hold the `data`, `scripts`, and the `output`.
 
@@ -89,15 +89,12 @@ minikube ssh -- sudo mkdir -p /mnt/asreview-storage
 kubectl apply -f volume.yml
 ```
 
-The volume contains a `StorageClass`, a `PersistentVolume`, and a `PersistentVolumeClaim`.
-It uses a local storage inside `minikube`, and it assumes that **2 GB** are sufficient for the project.
+### 2.4\.  Prepare the tasker script and Docker image
 
-## Prepare the tasker script and Docker image
-
-> **Warning**
+> **Note**
 >
 > The default tasker assumes that a data folder exists with your data.
-> Make sure to either provide the data or change the tasker and Dockerfile.
+> Make sure to provide the `van_de_Schoot_2018.csv` in `data` folder.
 
 ```bash
 docker build -t YOURUSER/tasker -f tasker.Dockerfile .
@@ -108,14 +105,16 @@ docker push YOURUSER/tasker
 >
 > This will push the image to Docker. You will need to create an account an login in your terminal with `docker login`.
 
-## Prepare the worker script and Docker image
+### 2.5\.  Prepare the worker script and Docker image
 
 ```bash
 docker build -t YOURUSER/worker -f worker.Dockerfile .
 docker push YOURUSER/worker
 ```
 
-## Running the workers
+## 3. Running the simulations
+
+### 3.1\. Running the workers
 
 The file `worker.yml` contains the configuration of the deployment of the workers.
 Change the `image` to reflect the path to the image that you pushed.
