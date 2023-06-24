@@ -120,7 +120,7 @@ docker push YOURUSER/worker
 ## 3. Running the simulations
 The file `worker.yml` contains the configuration of the deployment of the workers. So in order to vary allocation of CPU, RAM and the number of Workers you should alter the file of `worker.yml` in the following parts of the code: 
 
-* Change `replicas` in range betweem `1` to `14` to reproduce varing of CPUs allocation/
+* Change `replicas` in range betweem `1` to `14` to reproduce varing of CPUs allocation.
 * Change `memory` between `1024Mi` and `2048Mi` to reproduce varing of RAM allocation.
 
 >Note
@@ -169,39 +169,31 @@ kubectl apply -f tasker.yml
 
 ## 3.3\. Collecting the computation time
 
-Similarly, you should see a `tasker` pod, and you can follow its log.
+To output the computation time from Tasker run this command and collect the Duration time and store it. In our case time mesurements from the conducted analysis are stored in the parent directory of this repositrory in `data/experiment_resutls.csv`.
 
-## Deleting and restarting
-
-If you plan to make modifications to the tasker or the worker, they have to be deleted, respectivelly.
-
-The workers keep running after the tasker is done.
-They don't know when to stop.
-To stop and delete them, run
-
-```bash
-kubectl delete -f worker.yml
+```bash 
+kubectl get jobs tasker
 ```
 
-If you did not set a `ttlSecondsAfterFinished` for the tasker, it will keep existing, although not running.
-You can delete it the same way as you did the workers, but using `tasker.yml`.
+## 4\. Repeating the process 
 
-You can then delete the `volume.yml` and the `rabbit.yml`, but if you are running new tests, you don't need to.
+To restart the process with the same Minikube and RAM settings, but just with different amount of workers 
 
-Since the volume is mounted in the minikube, you don't lose the data, and you can run the workers again and inspect or copy them out, if you forgot.
-You will lose the execution log, though.
-
-If you want to delete everything in the volume as well, you can run
-
+### 4.1\. Clear the volume component with this command:
 ```bash
 minikube ssh -- sudo rm -rf /mnt/asreview-storage/*
 ```
 
-Running everything again is simply a matter of using `kubectl apply` again.
-Of course, if you modify the `.sh` or `.py` files, you have to build the corresponding docker image again.
+### 4.2\. Delete the tasker with this command:
+```bash
+kubectl delete -f tasker.yml
+```
 
-> **Warning**
->
-> The default **tasker** deletes the whole workdir folder to make sure that it is clean when it starts.
-> If you don't want this behaviour, look for the "rm -rf" line and comment it out or remove it.
-> However, if you run into a "Project already exists" error, this is why.
+### 4.3\. Clear the RabbitMQ queue with this command:
+```bash
+kubectl exec rabbitmq-server-0 -- rabbitmqctl delete_queue asreview_queue
+```
+
+Come back to the (3.1), alter either `replicas` or `memory` in `worker.yml` and start again.
+If you want to restart with default Minkube settings go back to (2.1), but you do not need to build Docker images again, so you can skip (2.4) and (2.5)
+
