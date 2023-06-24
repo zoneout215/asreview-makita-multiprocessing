@@ -9,27 +9,6 @@ This project was rendered from the Makita-ARFI template.
 
 See [asreview/asreview-makita#templates](https://github.com/asreview/asreview-makita#templates) for template rules and formats. The template is described as: 'All Relevant, Fixed Irrelevant'.
 
-## Installation
-
-This project depends on Python 3.7 or later (python.org/download), [ASReview](https://asreview.nl/download/) and [GNU parallel](https://www.gnu.org/software/parallel/) package. Install the following dependencies to run the simulation and analysis in this project.
-
-ASReview installation:
-```python
-pip install asreview asreview-insights asreview-datatools
-```
-GNU installation (make sure to change the NUMBER from the installed file):
-```bash
-wget https://ftp.gnu.org/gnu/parallel/parallel-latest.tar.bz2
-tar -xjf parallel-latest.tar.bz2
-cd parallel-NUMBER
-./configure
-make
-sudo make install
-```
-
-
-
-
 ## Data
 
 The performance on the following datasets is evaluated:
@@ -46,14 +25,28 @@ and is was written by [Abel Siquera](https://github.com/abelsiqueira).
 
 1\. Run `split-file.py` script to separate `jobs.sh` file. 
 ```python
-python split-file.py jobs.sh
+python scripts/split-file.py jobs.sh
 ```
 
-2\.Then you can just run the script below, specifying the number of cores as an argument.
-> **Warning**
-> We recommend not using all of your CPU cores at once.
-> Leave at least one or two to allow your machine to process other tasks.
-> Notice that there is no limitation on memory usage per task, so for models that use a lot of memory, there might be some competition for resources.
+2\. Then start with a non-parallelised run, specifying 1 as the number of CPUs.
+
+```bash
+bash parallel_run.sh 1
+```
+3\.The script will output the running time, collect it and store it. In our case time mesurements from the conducted analysis are stored in the parent directory of this repositrory in `data/experiment_resutls.csv`.
+> Note
+> If you want to reproduce the results of the study with max precision do not run any
+> computations on your machine, as it will take CPU resources from the simulations run
+> and will result in a different coputation time. By default computation time should not 
+> differ in range ± 5 seconds.
+
+3\. Remove the `output` folder with  the following command: 
+``` bash
+rm -f -r output/
+```
+
+4\. Then you can just repeat the process from 2. by runing the script below, specifying the number of cores as an argument. Increase the number initially to 2 CPU and then with increament of 2 (i.e. 4, 6, 8 etc.).
+
 
 ```bash
 bash parallel_run.sh <the_number_of_cores>
