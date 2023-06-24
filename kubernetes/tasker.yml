@@ -10,7 +10,7 @@ spec:
     spec:
       containers:
         - name: c
-          image: abelsiqueira/tasker
+          image: zoneout215/tasker
           volumeMounts:
             - name: asreview-storage
               mountPath: /app/workdir
