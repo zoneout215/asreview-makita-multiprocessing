@@ -30,7 +30,10 @@ The performance on the following datasets is evaluated:
 - data/van_de_Schoot_2018.csv
 
 ## How to run the simulations
-### 1\. Preparing Kubernetes for Simulation run
+### 1\. Preparing Kubernetes for Simulation run 
+> **Note**
+> There is no Jupyter Notebook for this part of this part due to its complexity.
+
 #### 1.1\. Start minikube and install RabbitMQ
 
 We need to install and run RabbitMQ on Kubernetes.

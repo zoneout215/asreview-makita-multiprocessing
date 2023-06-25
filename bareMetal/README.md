@@ -60,7 +60,6 @@ rm -f -r output/
 
 5\. Then you can just repeat the process from (2.) by runing the script below, specifying the number of cores as an argument. Increase the number initially to 2 CPU and then with increament of 2 (i.e. 4, 6, 8 etc.).
 
-
 ```bash
 bash parallel_run.sh <the_number_of_cores>
 ```
