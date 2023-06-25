@@ -5,7 +5,7 @@ asreview-makita==0.6.3
 asreview-wordcloud==1.0.1
 numpy==1.24.2
 wordcloud==1.8.2.2
-
+matplotlib==3.4.3
 # for Jupiter notebook
 IPython==8.8.0
 ipykernel==6.19.2
