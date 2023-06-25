@@ -25,7 +25,7 @@ For `K8s_test1` those arguments must not be specified, when you want to acuire t
 minikube start --cpus 16 --memory 60000
 kubectl apply -f "https://github.com/rabbitmq/cluster-operator/releases/latest/download/cluster-operator.yml"
 ```
->Note
+> **Note**  
 >If you want to start the minikube clusters with different parameters you should run, and start again from (2.1):
 
 >```
@@ -73,7 +73,7 @@ The file `worker.yml` contains the configuration of the deployment of the worker
 * Change `replicas` in range betweem `1` to `14` to reproduce varing of CPUs allocation.
 * Change `memory` between `1024Mi` and `2048Mi` to reproduce varing of RAM allocation.
 
->Note
+> **Note**
 > Setting `replicas` to `16` will work, but it will not speed up the simulations, because 2 CPUs will be taken by RabbitMQ and Tasker components. 
 
 
