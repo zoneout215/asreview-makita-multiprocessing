@@ -1,0 +1,7 @@
+asreview==1.2
+asreview-datatools==1.1.1
+asreview-insights==1.1.2
+asreview-makita==0.6.3
+asreview-wordcloud==1.0.1
+numpy==1.24.2
+wordcloud==1.8.2.2
