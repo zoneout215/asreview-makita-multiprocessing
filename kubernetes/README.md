@@ -1,3 +1,17 @@
+# Multprocessing the Simulation study with Kubernetes and Docker
+
+## Description
+This part of the project provides the showcase of the parallelisation of ARFI Makita Template using Kubernetes and Docker from this [repository](https://github.com/abelsiqueira/asreview-cloud) developed by [Abel Siquera](https://github.com/abelsiqueira) and [Sergei Romanov](https://github.com/zoneout215). 
+More indepth description of the implementation can be found in the [original repository](https://github.com/abelsiqueira/asreview-cloud).
+
+See [asreview/asreview-makita#templates](https://github.com/asreview/asreview-makita#templates) for template rules and formats. The template is described as: 'All Relevant, Fixed Irrelevant'.
+
+## Data
+
+The performance on the following datasets is evaluated:
+
+- data/van_de_Schoot_2018.csv
+
 # 2\. Preparation of Kubernetes for Simulation run
 ### 2.1\. Start minikube and install RabbitMQ
 

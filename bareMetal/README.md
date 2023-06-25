@@ -1,4 +1,4 @@
-# Multprocessing the Simulation study
+# Multprocessing the Simulation study with GNU parallel
 
 ## Description
 
@@ -35,7 +35,7 @@ bash parallel_run.sh 1
 ```
 3\. The script will output the running time, collect it and store it. In our case time mesurements from the conducted analysis are stored in the parent directory of this repositrory in `data/experiment_resutls.csv`.
 > Note
-> If you want to reproduce the results of the study with max precision do not run any
+> If you want to reproduce the results of the study with max precision, do not run any
 > computations or processes on your machine, as it will take CPU resources from the simulations run
 > and will result in a different coputation time. By default computation time should not 
 > differ in range ± 5 seconds.

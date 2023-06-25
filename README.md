@@ -1,6 +1,7 @@
 
- # ASReview Makita Multiprocessing
- This repository is devoted for a use case demonstration of ASReview Makita with multiprocessing approach.
+# ASReview Makita Multiprocessing
+This repository is devoted for a use case demonstration of ASReview Makita with multiprocessing approach.
+It contains two examples of parallelisation: `bareMetal` and `Kubernetes`.
 
 ## Table of Contents
 * `bareMetal` folder contains an example of Makita parallelisation without  Kubernetes and Docker using GNU package on bare CPUs
@@ -8,6 +9,7 @@
 * `analysis-notebook.ipynb` contains metrics computations and figures plotting, which we presented in the analysis 
 * `LICENCE` contains the licence of this repository
 * `README.md` contains the installation instructions and the description of the repository
+* `requirements.txt` contains the list of python packages required for the project
 
 
 ## 0\. Prerequisites
@@ -92,7 +94,7 @@ sudo apt-get update
 sudo apt-get install -y kubectl
 ```
 
-### 1.9\. install bash completions using the following command:
+### 1.9\. Install bash completions using the following command:
 ```bash
 kubectl completion bash | sudo tee /etc/bash_completion.d/kubectl > /dev/null
 
