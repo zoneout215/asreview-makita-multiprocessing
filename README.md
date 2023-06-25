@@ -18,7 +18,7 @@ It contains two examples of parallelisation: `bareMetal` and `kubernetes`.
 
 ## 0\. Prerequisites
 This project was implemented and tested maily on SURF Cloud with Linux OS, so the workflow, which is described below, suits this platform.
-They can be easily adapted to other UNIX-like systems, but it is not guaranteed that they will work on Windows without major changes.
+It can be easily adapted to other UNIX-like systems, but it is not guaranteed that it will work on Windows without major changes.
 Hence, we recommend to use Linux OS for this project reproduction.
 This project depends on Python 3.7 or later (python.org/download), and on the following software:
 
