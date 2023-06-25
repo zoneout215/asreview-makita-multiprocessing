@@ -11,7 +11,7 @@ It contains two examples of parallelisation: `bareMetal` and `kubernetes`.
 * `.gitignore` contains the list of files and folders, which are ignored by git
 * `analysis-notebook.ipynb` contains metrics computations and figures plotting, which we presented in the analysis 
 * `LICENCE` contains the licence of this repository
-* `README.md` contains the installation instructions and the description of the repository
+* `README.md` contains the installation instructions, prerequisites, and the description of the repository
 * `requirements.txt` contains the list of python packages required for the project
 
 
@@ -37,12 +37,12 @@ This project depends on Python 3.7 or later (python.org/download), and on the fo
 ## 1\. Installation on SURF
 ### 1.1\. Create a workspace with "Ubuntu 20.04 (SUDO enabled)".
 
-### 1.2\. ASReview and other python packages installation:
+### 1.2\. Install ASReview and other python packages from `requirements.txt`:
 ```python
 pip install -r requirements.txt
 ```
 
-### 1.3\.  GNU installation:
+### 1.3\.  Install GNU installation:
 ```bash
 wget https://ftp.gnu.org/gnu/parallel/parallel-20230522.tar.bz2
 tar -xjf parallel-20230522.tar.bz2
