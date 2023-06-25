@@ -95,7 +95,6 @@ The file `worker.yml` contains the configuration of the deployment of the worker
 > **Note**  
 > Setting `replicas` to `16` will work, but it will not speed up the simulations, because 2 CPUs will be taken by RabbitMQ and Tasker components. 
 
-
 #### 2.1\. Running the workers
 
 Change the `image` to reflect the path to the image that you pushed.
