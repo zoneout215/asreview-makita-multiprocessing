@@ -2,7 +2,7 @@
 
 ## Description
 
-This project does the parallelisation of ARFI Makita Template using GNU  parallel package for bash.  
+This project does the parallelisation of ARFI Makita Template using GNU parallel package for bash.  
 The implementation based on GNU is suitable for other Makta templates as well.
 <h6> This project was rendered with ASReview-Makita version 0.6.3.
 This project was rendered from the Makita-ARFI template.
