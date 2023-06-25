@@ -2,7 +2,7 @@
 
 ## Description
 This part of the project provides the showcase of the parallelisation of ARFI Makita Template using Kubernetes and Docker from this [repository](https://github.com/abelsiqueira/asreview-cloud) developed by [Abel Siquera](https://github.com/abelsiqueira) and [Sergei Romanov](https://github.com/zoneout215). 
-More indepth description of the implementation can be found in the [original repository](https://github.com/abelsiqueira/asreview-cloud).
+Therer more indepth description of the implementation and explanation of the components can be found.
 
 See [asreview/asreview-makita#templates](https://github.com/asreview/asreview-makita#templates) for template rules and formats. The template is described as: ARFI 'All Relevant, Fixed Irrelevant'.
 
@@ -12,7 +12,7 @@ The performance on the following datasets is evaluated:
 
 - data/van_de_Schoot_2018.csv
 
-# 1\. Preparation of Kubernetes for Simulation run
+## 1\. Preparing Kubernetes for Simulation run
 ### 1.1\. Start minikube and install RabbitMQ
 
 We need to install and run RabbitMQ on Kubernetes.
@@ -27,7 +27,6 @@ kubectl apply -f "https://github.com/rabbitmq/cluster-operator/releases/latest/d
 ```
 > **Note**  
 >If you want to start the minikube clusters with different parameters you should run, and start again from (2.1):
-
 >```
 >minikube stop
 >minikube delete
@@ -57,7 +56,6 @@ docker push YOURUSER/tasker
 > **Note**
 > * The default tasker assumes that a data folder exists with your data.
 > Make sure to provide the `van_de_Schoot_2018.csv` in `data` folder.
-
 > * This command will push the image to Docker. You will need to create an account an login in your terminal with `docker login`.
 
 ### 1.5\.  Prepare the worker script and Docker image
@@ -73,7 +71,7 @@ The file `worker.yml` contains the configuration of the deployment of the worker
 * Change `replicas` in range betweem `1` to `14` to reproduce varing of CPUs allocation.
 * Change `memory` between `1024Mi` and `2048Mi` to reproduce varing of RAM allocation.
 
-> **Note**
+> **Note**  
 > Setting `replicas` to `16` will work, but it will not speed up the simulations, because 2 CPUs will be taken by RabbitMQ and Tasker components. 
 
 

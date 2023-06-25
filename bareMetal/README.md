@@ -9,6 +9,15 @@ This project was rendered from the Makita-ARFI template.
 
 See [asreview/asreview-makita#templates](https://github.com/asreview/asreview-makita#templates) for template rules and formats. The template is described as: ARFI 'All Relevant, Fixed Irrelevant'.
 
+## Table of contents
+* `data` contains the information about the dataset used in the study
+* `output` contains the output of the simulations
+* `scripts` contains the scripts to run the simulations
+* `bare-metal-reproduction.ipynb` contains the example of run the simulations on bare CPUs. Here the resutls can be easily reproduced with this notebook
+* `jobs.sh` contains the commands to run the simulations
+* `parallel_run.sh` contains the commands to run the `jobs.sh` in parallel
+* `README.md` contains the description of the bareMetalproject
+
 ## Data
 
 The performance on the following datasets is evaluated:
@@ -87,4 +96,5 @@ The following files are found in this project:
     │   └── 📜split-file.py
     ├── 📜jobs.sh
     ├── 📜parallel_run.sh
+    ├── 📜bareMetal_reproduction.ipynb
     └── 📜README.md

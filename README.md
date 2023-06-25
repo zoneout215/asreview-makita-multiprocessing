@@ -1,7 +1,7 @@
 
 # ASReview Makita Multiprocessing
 This repository is devoted for a use case demonstration of ASReview Makita with multiprocessing approach.
-It contains two examples of parallelisation: `bareMetal` and `Kubernetes`.
+It contains two examples of parallelisation: `bareMetal` and `Kubernetes`. 
 
 ## Table of Contents
 * `bareMetal` folder contains an example of Makita parallelisation without  Kubernetes and Docker using GNU package on bare CPUs
@@ -10,9 +10,13 @@ It contains two examples of parallelisation: `bareMetal` and `Kubernetes`.
 * `LICENCE` contains the licence of this repository
 * `README.md` contains the installation instructions and the description of the repository
 * `requirements.txt` contains the list of python packages required for the project
+* `data` contains the mesurements results of the conducted analysis
 
 
 ## 0\. Prerequisites
+This project was implemented and tested maily on SURF Cloud with Linux OS, so the workflow, which is described below, suits this platform.
+They can be easily adapted to other UNIX-like systems, but it is not guaranteed that they will work on Windows without major changes.
+Hence, we recommend to use Linux OS for this project reproduction.
 This project depends on Python 3.7 or later (python.org/download), and on the following software:
 
 | Software                    | Name and version           |

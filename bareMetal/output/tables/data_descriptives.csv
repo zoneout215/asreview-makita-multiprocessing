@@ -1,0 +1,2 @@
+,n_records,n_relevant,n_irrelevant,n_unlabeled,n_missing_title,n_missing_abstract,n_duplicates
+data_stats_van_de_Schoot_2018.json,4544,38,4506,0,6,71,0
