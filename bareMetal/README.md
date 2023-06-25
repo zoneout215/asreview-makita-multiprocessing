@@ -33,19 +33,19 @@ python scripts/split-file.py jobs.sh
 ```bash
 bash parallel_run.sh 1
 ```
-3\.The script will output the running time, collect it and store it. In our case time mesurements from the conducted analysis are stored in the parent directory of this repositrory in `data/experiment_resutls.csv`.
+3\. The script will output the running time, collect it and store it. In our case time mesurements from the conducted analysis are stored in the parent directory of this repositrory in `data/experiment_resutls.csv`.
 > Note
 > If you want to reproduce the results of the study with max precision do not run any
 > computations or processes on your machine, as it will take CPU resources from the simulations run
 > and will result in a different coputation time. By default computation time should not 
 > differ in range ± 5 seconds.
 
-3\. Remove the `output` folder with the following command: 
+4\. Remove the `output` folder with the following command: 
 ``` bash
 rm -f -r output/
 ```
 
-4\. Then you can just repeat the process from (2.) by runing the script below, specifying the number of cores as an argument. Increase the number initially to 2 CPU and then with increament of 2 (i.e. 4, 6, 8 etc.).
+5\. Then you can just repeat the process from (2.) by runing the script below, specifying the number of cores as an argument. Increase the number initially to 2 CPU and then with increament of 2 (i.e. 4, 6, 8 etc.).
 
 
 ```bash
