@@ -32,6 +32,10 @@ and is was written by [Abel Siquera](https://github.com/abelsiqueira).
 
 ### Steps:
 
+0\. Go to `data` folder and follow the instructions in the `README.md` there.
+> **Note**
+> You can use the `bareMetal_reproduction.ipynb` notebook to reproduce the results of the study with ease, but also you can run the following steps in the CLI.
+
 1\. Run `split-file.py` script to separate `jobs.sh` file. 
 ```python
 python scripts/split-file.py jobs.sh
