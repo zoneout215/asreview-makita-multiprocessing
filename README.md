@@ -1,5 +1,6 @@
-
 # ASReview Makita Multiprocessing
+![PyPI - License](https://img.shields.io/pypi/l/asreview-makita)
+
 This repository is devoted for a use case demonstration of ASReview Makita with multiprocessing approach.
 It contains two examples of parallelisation: `bareMetal` and `Kubernetes`. 
 
@@ -106,3 +107,6 @@ kubectl completion bash | sudo tee /etc/bash_completion.d/kubectl > /dev/null
 
 ```
 Log out and log in after installing bash completions.
+
+## License 
+This repository is licensed under the MIT License
