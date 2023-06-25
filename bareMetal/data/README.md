@@ -1,5 +1,5 @@
 # Data
-This folder should contain `van_de_Schoot_2018.csv` file from Synergy datasets if you want to reproduce the results
+This folder should contain `van_de_Schoot_2018.csv` file from [Synergy datasets](https://github.com/asreview/synergy-dataset) if you want to reproduce the results.
 
 To acquire data do these steps:
 

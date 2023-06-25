@@ -1,4 +1,4 @@
-# Multprocessing the Simulation study with GNU parallel
+# Multprocessing the ARFI Simulation study with GNU parallel
 
 ## Description
 
@@ -7,7 +7,7 @@ The implementation based on GNU is suitable for other Makta templates as well.
 <h6> This project was rendered with ASReview-Makita version 0.6.3.
 This project was rendered from the Makita-ARFI template.
 
-See [asreview/asreview-makita#templates](https://github.com/asreview/asreview-makita#templates) for template rules and formats. The template is described as: 'All Relevant, Fixed Irrelevant'.
+See [asreview/asreview-makita#templates](https://github.com/asreview/asreview-makita#templates) for template rules and formats. The template is described as: ARFI 'All Relevant, Fixed Irrelevant'.
 
 ## Data
 
