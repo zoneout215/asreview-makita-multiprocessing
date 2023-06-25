@@ -2,7 +2,7 @@
 ![PyPI - License](https://img.shields.io/pypi/l/asreview-makita)
 
 This repository is devoted for a use case demonstration of ASReview Makita with multiprocessing approach.
-It contains two examples of parallelisation: `bareMetal` and `Kubernetes`. 
+It contains two examples of parallelisation: `bareMetal` and `kubernetes`. 
 
 ## Table of Contents
 * `bareMetal` folder contains an example of Makita parallelisation without  Kubernetes and Docker using GNU package on bare CPUs

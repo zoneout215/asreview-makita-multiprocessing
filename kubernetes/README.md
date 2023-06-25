@@ -6,6 +6,23 @@ There a more indepth description of the implementation and explanation of the co
 
 See [asreview/asreview-makita#templates](https://github.com/asreview/asreview-makita#templates) for template rules and formats. The template is described as: ARFI 'All Relevant, Fixed Irrelevant'.
 
+## Table of Contents
+* `.dockerignore` contains the list of files and folders, which are ignored by docker
+* `.editorconfig` contains the editor configuration
+* `.gitignore` contains the list of files and folders, which are ignored by git
+* `rabbitmq.yml` contains the RabbitMQ service configuration
+* `README.md` contains the installation instructions and the description of the content
+* `split-file.py` contains the script to split the job.sh file into multiple files for parallelisation
+* `tasker-send.py` contains the script which sends the simulation commands to the Workers
+* `tasker.Dockerfile` contains the Dockerfile for the Tasker component
+* `tasker.sh` contains the script responsible for Tasker's functionality
+* `tasker.yml` contains the Tasker service configuration
+* `volume.yml` contains the volume configuration
+* `worker-reciever.py` contains the script which recieves the simulation commands from Tasker
+* `worker.Dockerfile` contains the Dockerfile for the Worker component
+* `worker.sh` contains the script responsible for Worker's functionality
+* `worker.yml` contains the Worker service configuration
+
 ## Data
 
 The performance on the following datasets is evaluated:

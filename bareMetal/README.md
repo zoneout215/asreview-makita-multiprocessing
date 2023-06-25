@@ -24,7 +24,7 @@ The performance on the following datasets is evaluated:
 
 - data/van_de_Schoot_2018.csv
 
-## Run simulation
+## How to run the simulations
 
 To parallelize your `jobs.sh` file, first, we need to split it into blocks that can be parallelized.  
 The `split-file.py` is inherited from and inspired by the Kubernetes implementation,  
