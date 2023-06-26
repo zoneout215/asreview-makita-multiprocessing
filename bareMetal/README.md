@@ -36,12 +36,26 @@ and is was written by [Abel Siquera](https://github.com/abelsiqueira).
 > **Note**
 > You can use the `bareMetal_reproduction.ipynb` notebook to reproduce the results of the study with ease, but also you can run the following steps in the CLI.
 
-1\. Run `split-file.py` script to separate `jobs.sh` file. 
+1\. Account for the fact that by default SURF uses `python3` as a command to run python scripts.
+So you should either change `python` to `python3` in the `jobs.sh` file or move the `python3` interpreter to `python` with the following command:
+
+```bash
+cd /usr/bin
+sudo mv -s python3 python
+```
+
+If you chose to move the interpreter, check the path to the interpreter with the following command:
+```bash
+which python
+```
+It should output `/usr/bin/python` if you moved the interpreter correctly.
+
+2\. Run `split-file.py` script to separate `jobs.sh` file. 
 ```python
 python scripts/split-file.py jobs.sh
 ```
 
-2\. Then start with a non-parallelised run, specifying 1 as the number of CPUs.
+3\. Then start with a non-parallelised run, specifying 1 as the number of CPUs.
 
 ```bash
 bash parallel_run.sh 1
@@ -53,12 +67,12 @@ bash parallel_run.sh 1
 > and will result in a different coputation time. By default computation time should not 
 > differ in range ± 5 seconds.
 
-4\. Remove the `output` folder with the following command: 
+5\. Remove the `output` folder with the following command: 
 ``` bash
 rm -f -r output/
 ```
 
-5\. Then you can just repeat the process from (2.) by runing the script below, specifying the number of cores as an argument. Increase the number initially to 2 CPU and then with increament of 2 (i.e. 4, 6, 8 etc.).
+6\. Then you can just repeat the process from (2.) by runing the script below, specifying the number of cores as an argument. Increase the number initially to 2 CPU and then with increament of 2 (i.e. 4, 6, 8 etc.).
 
 ```bash
 bash parallel_run.sh <the_number_of_cores>
