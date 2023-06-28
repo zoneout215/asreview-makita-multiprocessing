@@ -60,7 +60,7 @@ python scripts/split-file.py jobs.sh
 ```bash
 bash parallel_run.sh 1
 ```
-3\. The script will output the running time, collect it and store it. In our case time mesurements from the conducted analysis are stored in the parent directory of this repositrory in `data/experiment_resutls.csv`.
+3\. The script will output the running time, collect it and store it. In our case time mesurements from the conducted analysis are stored in the parent directory of this repositrory in `resutlsData/experiment_resutls.csv`.
 > Note
 > If you want to reproduce the results of the study with max precision, do not run any
 > computations or processes on your machine, as it will take CPU resources from the simulations run
@@ -115,3 +115,7 @@ The following files are found in this project:
     ├── 📜parallel_run.sh
     ├── 📜bareMetal_reproduction.ipynb
     └── 📜README.md
+
+### Citations
+* De Bruin, J., Ma, Y., Ferdinands, G., Teijema, J., & Van de Schoot, R. (2023). SYNERGY - Open machine learning dataset on study selection in systematic reviews. DataverseNL. https://doi.org/10.34894/HE6NAQ
+* Van De Schoot, R., Sijbrandij, M., Winter, S. D., Depaoli, S., & Vermunt, J. K. (2017). The GRoLTS-checklist: guidelines for reporting on latent trajectory studies. Structural Equation Modeling: A Multidisciplinary Journal, 24(3), 451-467.

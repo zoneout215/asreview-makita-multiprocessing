@@ -128,8 +128,7 @@ Logging as ...
 #### 2.2\. Running the tasker
 
 Similarly, the `tasker.yml` allows you to run the tasker as a Kubernetes job.
-Change the `image`, and optionally add a `ttlSecondsAfterFinished` to auto delete the task - I prefer to keep it until I review the log.
-Run
+To start a simulation, run this: 
 
 ```bash
 kubectl apply -f tasker.yml
@@ -137,7 +136,7 @@ kubectl apply -f tasker.yml
 
 #### 2.3\. Collecting the computation time
 
-To output the computation time from Tasker run this command and collect the Duration time and store it. In our case time mesurements from the conducted analysis are stored in the parent directory of this repositrory in `data/experiment_resutls.csv`.
+To output the computation time from Tasker run this command and collect the Duration time and store it. In our case time mesurements from the conducted analysis are stored in the parent directory of this repositrory in `resutlsData/experiment_resutls.csv/experiment_resutls.csv`.
 
 ```bash 
 kubectl get jobs tasker
