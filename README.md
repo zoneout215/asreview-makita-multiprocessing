@@ -6,8 +6,8 @@ It contains two examples of parallelisation: `bareMetal` and `kubernetes`.
 
 ## Table of Contents
 * `bareMetal` folder contains an example of Makita parallelisation without  Kubernetes and Docker using GNU package on bare CPUs
-* `data` contains the mesurements results of the conducted analysis
 * `kubernetes` folder contains an example of Makita parallelisation with Kubernetes and Docker
+* `resultsData` contains the mesurements results of the conducted analysis
 * `.gitignore` contains the list of files and folders, which are ignored by git
 * `analysis-notebook.ipynb` contains metrics computations and figures plotting, which we presented in the analysis 
 * `LICENCE` contains the licence of this repository
