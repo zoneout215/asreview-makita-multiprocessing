@@ -136,7 +136,7 @@ kubectl apply -f tasker.yml
 
 #### 2.3\. Collecting the computation time
 
-To output the computation time from Tasker run this command and collect the Duration time and store it. In our case time mesurements from the conducted analysis are stored in the parent directory of this repositrory in `resutlsData/experiment_resutls.csv/experiment_resutls.csv`.
+To output the computation time from Tasker run this command and collect the Duration time and store it. In our case time mesurements from the conducted analysis are stored in the parent directory of this repositrory in `resultsData/experiment_resutls.csv/experiment_resutls.csv`.
 
 ```bash 
 kubectl get jobs tasker

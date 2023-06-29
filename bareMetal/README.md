@@ -60,7 +60,7 @@ python scripts/split-file.py jobs.sh
 ```bash
 bash parallel_run.sh 1
 ```
-3\. The script will output the running time, collect it and store it. In our case time mesurements from the conducted analysis are stored in the parent directory of this repositrory in `resutlsData/experiment_resutls.csv`.
+3\. The script will output the running time, collect it and store it. In our case time mesurements from the conducted analysis are stored in the parent directory of this repositrory in `resultsData/experiment_resutls.csv`.
 > Note
 > If you want to reproduce the results of the study with max precision, do not run any
 > computations or processes on your machine, as it will take CPU resources from the simulations run
